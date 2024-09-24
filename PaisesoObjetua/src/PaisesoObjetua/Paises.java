@@ -10,26 +10,22 @@ public class Paises {
 
 	/** Hiriaren Telefono kodea. */
 	String PaisKode;
-	
+
 	/** Hiriaren izena. */
 	String paissString;
-	
+
 	/** Kapitalaren izena. */
 	String kapitalaString;
-	
-	
-	
-	
-	
+
 	/** Hiriko poblazio kopurua. */
 	Double poblazioaDouble;
-	
+
 	/** Bizi esperantza Kopurua */
 	int BiziEsperantzakop;
-	
+
 	/** Hiria sortutako Data. */
 	LocalDate Sortudata;
-	
+
 	/** Demokrazia dagoen Hiri horretan. */
 	boolean Demokrazioabool;
 
