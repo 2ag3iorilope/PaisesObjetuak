@@ -1,0 +1,187 @@
+package PaisesoObjetua;
+
+import java.time.LocalDate;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Paises.
+ */
+public class Paises {
+
+	/** Hiriaren Telefono kodea. */
+	String PaisKode;
+	
+	/** Hiriaren izena. */
+	String paissString;
+	
+	/** Kapitalaren izena. */
+	String kapitalaString;
+	
+	
+	
+	
+	
+	/** Hiriko poblazio kopurua. */
+	Double poblazioaDouble;
+	
+	/** Bizi esperantza Kopurua */
+	int BiziEsperantzakop;
+	
+	/** Hiria sortutako Data. */
+	LocalDate Sortudata;
+	
+	/** Demokrazia dagoen Hiri horretan. */
+	boolean Demokrazioabool;
+
+
+	/**
+	 * Instantiates a new paises.
+	 *
+	 * @param kodea , hiriko telefono kodea
+	 * @param Pais , hiriaren izea
+	 * @param Kapitala, kapitalaren izena
+	 * @param Poblazioa, Hiriaren poblazio kopurua
+	 * @param Bizi_Esperantza, hiriko bizi esperantza
+	 * @param sortudataDate, hiria sortutako data
+	 * @param Demokrazia , demokrazia dagoen hirian
+	 */
+	public Paises(String kodea,String Pais,String Kapitala,Double Poblazioa,int Bizi_Esperantza,LocalDate sortudataDate, boolean Demokrazia ) {
+
+		PaisKode = kodea;
+		paissString = Pais;
+		kapitalaString = Kapitala;
+
+
+		poblazioaDouble = Poblazioa;
+		BiziEsperantzakop = Bizi_Esperantza;
+		Sortudata = sortudataDate;
+		Demokrazioabool = Demokrazia;
+
+	}
+
+
+
+	/**
+	 * Hiriko telefono kodea lortzen duen metodoa
+	 *
+	 * @return Hiriko Telefono Kodea
+	 */
+	public String getPaisKode() {
+		return PaisKode;
+	}
+
+
+
+	/**
+	 *Hiriko telefono kodea ezartzen duen metodoa
+	 *
+	 * @param paisKode , telefono kode berria
+	 */
+	public void setPaisKode(String paisKode) {
+		PaisKode = paisKode;
+	}
+
+
+
+	/**
+	 * Hiriaren izena lortzen duen metodoa
+	 *
+	 * @return  paiss , Hiriaren izena
+	 */
+	public String getPaissString() {
+		return paissString;
+	}
+
+
+
+	/**
+	 * Hiriaren izena ezarten duen metodoa
+	 *
+	 * @param paissString , hiriaren izen berria
+	 */
+	public void setPaissString(String paissString) {
+		this.paissString = paissString;
+	}
+
+
+
+	/**
+	 *Hiriaren kapitala lortzeko metodoa
+	 *
+	 * @return the kapitala , Hiriaren kaptalaren izena
+	 */
+	public String getKapitalaString() {
+		return kapitalaString;
+	}
+
+
+
+	/**
+	 * Hiriaren kapitala ezartzeko metodoa
+	 *
+	 * @param kapitalaString, kapital izen berria
+	 */
+	public void setKapitalaString(String kapitalaString) {
+		this.kapitalaString = kapitalaString;
+	}
+
+
+	/**
+	 * Hiriaren poblazioa lortzen duen metodoa
+	 *
+	 * @return the poblazioa , hiriaren poblazio guztia
+	 */
+	public Double getPoblazioaDouble() {
+		return poblazioaDouble;
+	}
+
+
+
+	/**
+	 * Hiriaren poblazioa ezartzeko metodoa
+	 *
+	 * @param poblazioaDouble , hiriaren poblazio berria
+	 */
+	public void setPoblazioaDouble(Double poblazioaDouble) {
+		this.poblazioaDouble = poblazioaDouble;
+	}
+
+
+
+	/**
+	 * Hiriaren bizi esperantza lortzeko metodoa
+	 *
+	 * @return hiriaren bizi esperantza
+	 */
+	public int getBiziEsperantzakop() {
+		return BiziEsperantzakop;
+	}
+
+
+
+	/**
+	 * Hiriaren bizi esperantza ezartzeko metodoa
+	 *
+	 * @param biziEsperantzakop, hiriko bizi esperantza berria
+	 */
+	public void setBiziEsperantzakop(int biziEsperantzakop) {
+		BiziEsperantzakop = biziEsperantzakop;
+	}
+
+	/**
+	 * To string.
+	 *
+	 * @return erregistroa formatu egokian
+	 */
+	@Override
+	public String toString() {
+		return "Kodea: " + PaisKode + "\n" +
+				"Estatua: " + paissString + "\n" +
+				"BiziEsperantza: " + (BiziEsperantzakop != 0 ? BiziEsperantzakop : "No disponible") + "\n" +
+				"Data Sortu: " +   Sortudata +  "\n" +
+				"Poblazioa: " + poblazioaDouble + "\n" +
+				"Kapitala: " + kapitalaString + "\n" +
+				"------------------------------";
+	}
+
+}
