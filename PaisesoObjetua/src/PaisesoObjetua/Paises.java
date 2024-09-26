@@ -2,7 +2,7 @@ package PaisesoObjetua;
 
 import java.time.LocalDate;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Paises.
  */
