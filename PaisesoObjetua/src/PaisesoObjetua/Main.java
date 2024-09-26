@@ -107,17 +107,17 @@ public class Main {
 								System.out.println("Kodea ez da aurkitu.");
 							}
 							break;
-							
+
 						case 3:
 							double biziMedia = kalkulatuBiziEsperantzaMedia(paises);
 							System.out.println("Bizi Esperantzaren bataz bestekoa: " + biziMedia + " urte.");
 							break;
-							
+
 						case 4:
 							double pobMedia = kalkulatuPoblazioMedia(paises);
 							System.out.println("Poblazioaren bataz bestekoa: " + pobMedia + " pertsona.");
 							break;
-							
+
 						case 5:
 							System.out.print("Sartu hasiera data (yyyy-MM-dd): ");
 							String hasieraData = sc.next();
@@ -139,7 +139,7 @@ public class Main {
 								System.out.println("Errorea: Data formatua ez da zuzena.");
 							}
 							break;
-							
+
 						case 6: 
 							System.out.print("Sartu kodea: ");
 							String newKodea = sc.next();
@@ -175,7 +175,7 @@ public class Main {
 								System.out.println("Errorea: Data formatua ez da zuzena.");
 							}
 							break;
-							
+
 						case 7: 
 							System.out.print("Sartu kodea ezabatzeko: ");
 							String bajaKodea = sc.next();
@@ -198,7 +198,7 @@ public class Main {
 
 								if (konfirmazioa.equalsIgnoreCase("bai")) {
 									paises.remove(indexToRemove);
-									
+
 									System.out.println("Erregistroa ezabatu da.");
 									erregistroEzabatua = true;
 								} else {
@@ -208,7 +208,7 @@ public class Main {
 								System.out.println("Kodea ez da aurkitu.");
 							}
 							break;
-							
+
 						case 8: 
 							System.out.println("Demokrazia duten herrialdeak:");
 							for (Paises p : paises) {
@@ -217,7 +217,7 @@ public class Main {
 								}
 							}
 							break;
-							
+
 						case 9: 
 							Collections.sort(paises, Comparator.comparing(Paises::getPaissStringa));
 							System.out.println("Erregistroak Hiriaren arabera ordenatu dira:");
@@ -225,7 +225,7 @@ public class Main {
 								System.out.println(p);
 							}
 							break;
-							
+
 						case 10:
 							System.out.println("Irteten...");
 							break;
