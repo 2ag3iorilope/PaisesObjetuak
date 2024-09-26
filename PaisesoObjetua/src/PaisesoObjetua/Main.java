@@ -1,6 +1,8 @@
 package PaisesoObjetua;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,71 +57,156 @@ public class Main {
 	 * @throws Exception the exception
 	 */
 	public static void menua(ArrayList<Paises> paises) throws Exception {
-		Scanner sc = new Scanner(System.in);
-		boolean ondosartuta = false;
-		int aukera = 0;
+	    Scanner sc = new Scanner(System.in);
+	    boolean ondosartuta = false;
+	    int aukera = 0;
+	    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Dataren Formatua eskatzen dugu
 
-		do {
-			ondosartuta = false;
-			System.out.println("Aukeratu hurrengo ataletako bat :");
-			System.out.println("1.- Erregistro guztiak erakutsi");
-			System.out.println("2.- Kode Bidez Erregistroa Bilatu");
-			System.out.println("3.- Bizi Esperantzaren batazbestekoa ikusi");
-			System.out.println("4.- Poblazioaren batazbestekoa ikusi");
-			System.out.println("9.- Irten");
+	    do {
+	        ondosartuta = false;
+	        System.out.println("Aukeratu hurrengo ataletako bat :");
+	        System.out.println("1.- Erregistro guztiak erakutsi");
+	        System.out.println("2.- Kode Bidez Erregistroa Bilatu");
+	        System.out.println("3.- Bizi Esperantzaren batazbestekoa ikusi");
+	        System.out.println("4.- Poblazioaren batazbestekoa ikusi");
+	        System.out.println("5.- Erregistroak bi data artean bilatu");
+	        System.out.println("6.- Erregistro berri bat gehitu (Alta)");
+	        System.out.println("7.- Erregistro bat ezabatu kode bidez (Baja)");
+	        System.out.println("8.- Erakutsi demokrazia duten herrialdeak");
+	        System.out.println("9.- Irten");
 
-			while (!ondosartuta) {
-				System.out.print("Zuk aukeratutakoa: ");
-				if (sc.hasNextInt()) {
-					aukera = sc.nextInt();
-					if (aukera >= 1 && aukera <= 9) {
-						ondosartuta = true;
-						switch (aukera) {
-						case 1: 
-							for (Paises p : paises) {
-								System.out.println(p);
-							}
-							break;
-						case 2:
-							System.out.print("Sartu kodea: ");
-							String kodea = sc.next();
-							boolean kodeaAurkituta = false;
-							for (Paises p : paises) {
-								if (p.getPaissString().equals(kodea)) {
-									System.out.println(p);
-									kodeaAurkituta = true;
-									break;
-								}
-							}
-							if (!kodeaAurkituta) {
-								System.out.println("Kodea ez da aurkitu.");
-							}
-							break;
-						case 3:
-							double biziMedia = kalkulatuBiziEsperantzaMedia(paises);
-							System.out.println("Bizi Esperantzaren bataz bestekoa: " + biziMedia + " urte.");
-							break;
-						case 4:
-							double pobMedia = kalkulatuPoblazioMedia(paises);
-							System.out.println("Poblazioaren bataz bestekoa: " + pobMedia + " pertsona.");
-							break;
-						case 9:
-							System.out.println("Irteten...");
-							break;
-						default:
-							System.out.println("Aukera desegokia.");
-						}
-					} else {
-						System.out.println("Errorea: Sartu baliozko aukera bat (1-9).");
-					}
-				} else {
-					System.out.println("Errorea: Zenbaki bat sartu behar duzu.");
-					sc.next(); 
-				}
-			}
-		} while (aukera != 9);
+	        while (!ondosartuta) {
+	            System.out.print("Zuk aukeratutakoa: ");
+	            if (sc.hasNextInt()) {
+	                aukera = sc.nextInt();
+	                if (aukera >= 1 && aukera <= 9) {
+	                    ondosartuta = true;
+	                    switch (aukera) {
+	                        case 1:
+	                            for (Paises p : paises) {
+	                                System.out.println(p);
+	                            }
+	                            break;
+	                        case 2:
+	                            System.out.print("Sartu kodea: ");
+	                            String kodea = sc.next();
+	                            boolean kodeaAurkituta = false;
+	                            for (Paises p : paises) {
+	                                if (p.getPaissString().equals(kodea)) {
+	                                    System.out.println(p);
+	                                    kodeaAurkituta = true;
+	                                    break;
+	                                }
+	                            }
+	                            if (!kodeaAurkituta) {
+	                                System.out.println("Kodea ez da aurkitu.");
+	                            }
+	                            break;
+	                        case 3:
+	                            double biziMedia = kalkulatuBiziEsperantzaMedia(paises);
+	                            System.out.println("Bizi Esperantzaren bataz bestekoa: " + biziMedia + " urte.");
+	                            break;
+	                        case 4:
+	                            double pobMedia = kalkulatuPoblazioMedia(paises);
+	                            System.out.println("Poblazioaren bataz bestekoa: " + pobMedia + " pertsona.");
+	                            break;
+	                        case 5:
+	                            System.out.print("Sartu hasiera data (yyyy-MM-dd): ");
+	                            String hasieraData = sc.next();
+	                            System.out.print("Sartu bukaera data (yyyy-MM-dd): ");
+	                            String bukaeraData = sc.next();
 
-		sc.close();
+	                            try {
+	                                LocalDate startDate = LocalDate.parse(hasieraData, dateFormat);
+	                                LocalDate endDate = LocalDate.parse(bukaeraData, dateFormat);
+
+	                                for (Paises p : paises) {
+	                                    LocalDate paisData = p.lortudata(); 
+	                                    if ((paisData.isAfter(startDate) || paisData.isEqual(startDate)) &&
+	                                        (paisData.isBefore(endDate) || paisData.isEqual(endDate))) {
+	                                        System.out.println(p);
+	                                    }
+	                                }
+	                            } catch (DateTimeParseException e) {
+	                                System.out.println("Errorea: Data formatua ez da zuzena.");
+	                            }
+	                            break;
+	                        case 6: // Opción para dar de alta un registro
+	                            System.out.print("Sartu kodea: ");
+	                            String newKodea = sc.next();
+
+	                            System.out.print("Sartu izena (país): ");
+	                            String izena = sc.next();
+
+	                            System.out.print("Sartu kapitala: ");
+	                            String kapitala = sc.next();
+
+	                            System.out.print("Sartu populazioa: ");
+	                            Double populazioa = sc.nextDouble();
+
+	                            System.out.print("Sartu bizi esperantza: ");
+	                            int biziEsperantza = sc.nextInt();
+
+	                            System.out.print("Sartu sortze data (yyyy-MM-dd): ");
+	                            String sortuData = sc.next();
+
+	                            System.out.print("Demokrazia? (true/false): ");
+	                            boolean demokrazia = sc.nextBoolean();
+
+	                            try {
+	                                LocalDate fecha = LocalDate.parse(sortuData, dateFormat);
+
+	                                // Se crea un nuevo país con los datos proporcionados por el usuario
+	                                Paises paisBerria = new Paises(newKodea, izena, kapitala, populazioa, biziEsperantza, fecha, demokrazia);
+	                                paises.add(paisBerria);
+	                                System.out.println("Erregistroa ondo gehitu da.");
+
+	                            } catch (DateTimeParseException e) {
+	                                System.out.println("Errorea: Data formatua ez da zuzena.");
+	                            }
+	                            break;
+	                        case 7: // Opción para dar de baja un registro
+	                            System.out.print("Sartu kodea ezabatzeko: ");
+	                            String bajaKodea = sc.next();
+	                            boolean erregistroEzabatua = false;
+
+	                            for (int i = 0; i < paises.size(); i++) {
+	                                if (paises.get(i).getPaissString().equals(bajaKodea)) {
+	                                    paises.remove(i);
+	                                    erregistroEzabatua = true;
+	                                    System.out.println("Erregistroa ezabatu da.");
+	                                    break;
+	                                }
+	                            }
+	                            if (!erregistroEzabatua) {
+	                                System.out.println("Kodea ez da aurkitu.");
+	                            }
+	                            break;
+	                        case 8: 
+	                            System.out.println("Demokrazia duten herrialdeak:");
+	                            for (Paises p : paises) {
+	                                if (p.isDemokrazioabool()) { 
+	                                    System.out.println(p);
+	                                }
+	                            }
+	                            break;
+	                        case 9:
+	                            System.out.println("Irteten...");
+	                            break;
+	                        default:
+	                            System.out.println("Aukera desegokia.");
+	                    }
+	                } else {
+	                    System.out.println("Errorea: Sartu baliozko aukera bat (1-9).");
+	                }
+	            } else {
+	                System.out.println("Errorea: Zenbaki bat sartu behar duzu.");
+	                sc.next();
+	            }
+	        }
+	    } while (aukera != 9);
+
+	    sc.close();
 	}
 
 	/**

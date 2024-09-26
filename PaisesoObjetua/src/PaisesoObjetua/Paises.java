@@ -46,8 +46,6 @@ public class Paises {
 		PaisKode = kodea;
 		paissString = Pais;
 		kapitalaString = Kapitala;
-
-
 		poblazioaDouble = Poblazioa;
 		BiziEsperantzakop = Bizi_Esperantza;
 		Sortudata = sortudataDate;
@@ -77,6 +75,13 @@ public class Paises {
 		PaisKode = paisKode;
 	}
 
+	 public LocalDate lortudata() {
+	        return Sortudata;
+	    }
+
+	    public void setData(LocalDate fecha) {
+	        this.Sortudata = fecha;
+	    }
 
 
 	/**
@@ -84,10 +89,16 @@ public class Paises {
 	 *
 	 * @return  paiss , Hiriaren izena
 	 */
-	public String getPaissString() {
-		return paissString;
-	}
+	    public String getPaissString() {
+	        return PaisKode;
+	    }
 
+	    public LocalDate getFecha() {
+	        return Sortudata;
+	    }
+
+	   
+	
 
 
 	/**
@@ -164,6 +175,10 @@ public class Paises {
 		BiziEsperantzakop = biziEsperantzakop;
 	}
 
+	   public boolean isDemokrazioabool() {
+	        return Demokrazioabool;
+	    }
+	
 	/**
 	 * To string.
 	 *
