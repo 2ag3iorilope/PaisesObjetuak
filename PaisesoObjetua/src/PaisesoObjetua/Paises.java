@@ -207,7 +207,7 @@ public class Paises {
 	public String toString() {
 		return "Kodea: " + PaisKode + "\n" +
 				"Estatua: " + paissString + "\n" +
-				"BiziEsperantza: " + (BiziEsperantzakop != 0 ? BiziEsperantzakop : "No disponible") + "\n" +
+				"BiziEsperantza: " + (BiziEsperantzakop != 0 ? BiziEsperantzakop : "Ez dago eskuragarri") + "\n" +
 				"Data Sortu: " + Sortudata + "\n" +
 				"Poblazioa: " + poblazioaDouble + "\n" +
 				"Kapitala: " + kapitalaString + "\n" +

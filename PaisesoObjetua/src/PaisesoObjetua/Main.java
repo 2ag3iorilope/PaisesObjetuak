@@ -108,7 +108,6 @@ public class Main {
 							}
 							break;
 							
-							
 						case 3:
 							double biziMedia = kalkulatuBiziEsperantzaMedia(paises);
 							System.out.println("Bizi Esperantzaren bataz bestekoa: " + biziMedia + " urte.");
