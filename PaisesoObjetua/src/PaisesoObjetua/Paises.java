@@ -20,7 +20,7 @@ public class Paises {
 	/** Hiriko poblazio kopurua. */
 	Double poblazioaDouble;
 
-	/** Bizi esperantza Kopurua */
+	/**  Bizi esperantza Kopurua. */
 	int BiziEsperantzakop;
 
 	/** Hiria sortutako Data. */
@@ -35,10 +35,10 @@ public class Paises {
 	 *
 	 * @param kodea , hiriko telefono kodea
 	 * @param Pais , hiriaren izea
-	 * @param Kapitala, kapitalaren izena
-	 * @param Poblazioa, Hiriaren poblazio kopurua
-	 * @param Bizi_Esperantza, hiriko bizi esperantza
-	 * @param sortudataDate, hiria sortutako data
+	 * @param Kapitala , hiriko kapitala
+	 * @param Poblazioa, hiriko poblazioa
+	 * @param Bizi_Esperantza , hiriko bizi esperantza
+	 * @param sortudataDate , hiria sortu zen data
 	 * @param Demokrazia , demokrazia dagoen hirian
 	 */
 	public Paises(String kodea,String Pais,String Kapitala,Double Poblazioa,int Bizi_Esperantza,LocalDate sortudataDate, boolean Demokrazia ) {
@@ -56,7 +56,7 @@ public class Paises {
 
 
 	/**
-	 * Hiriko telefono kodea lortzen duen metodoa
+	 * Hiriko telefono kodea lortzen duen metodoa.
 	 *
 	 * @return Hiriko Telefono Kodea
 	 */
@@ -67,7 +67,7 @@ public class Paises {
 
 
 	/**
-	 *Hiriko telefono kodea ezartzen duen metodoa
+	 * Hiriko telefono kodea ezartzen duen metodoa.
 	 *
 	 * @param paisKode , telefono kode berria
 	 */
@@ -75,17 +75,27 @@ public class Paises {
 		PaisKode = paisKode;
 	}
 
-	 public LocalDate lortudata() {
+	 /**
+ 	 * Hiriaren sortu zen data lortzen duen metodoa.
+ 	 *
+ 	 * @return hiria sortu zen data
+ 	 */
+ 	public LocalDate lortudata() {
 	        return Sortudata;
 	    }
 
-	    public void setData(LocalDate fecha) {
+	    /**
+    	 * Hiraren data ezartzen duen metodoa.
+    	 *
+    	 * @param Hiriaren data berria
+    	 */
+    	public void setData(LocalDate fecha) {
 	        this.Sortudata = fecha;
 	    }
 
 
 	/**
-	 * Hiriaren izena lortzen duen metodoa
+	 * Hiriaren izena lortzen duen metodoa.
 	 *
 	 * @return  paiss , Hiriaren izena
 	 */
@@ -93,7 +103,12 @@ public class Paises {
 	        return PaisKode;
 	    }
 
-	    public LocalDate getFecha() {
+	    /**
+	 	 * Hiriaren sortu zen data lortzen duen metodoa.
+	 	 *
+	 	 * @return hiria sortu zen data
+	 	 */
+    	public LocalDate getFecha() {
 	        return Sortudata;
 	    }
 
@@ -102,7 +117,7 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren izena ezarten duen metodoa
+	 * Hiriaren izena ezarten duen metodoa.
 	 *
 	 * @param paissString , hiriaren izen berria
 	 */
@@ -113,9 +128,9 @@ public class Paises {
 
 
 	/**
-	 *Hiriaren kapitala lortzeko metodoa
+	 * Hiriaren kapitala lortzeko metodoa.
 	 *
-	 * @return the kapitala , Hiriaren kaptalaren izena
+	 * @return  kapitala , Hiriaren kaptalaren izena
 	 */
 	public String getKapitalaString() {
 		return kapitalaString;
@@ -124,9 +139,9 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren kapitala ezartzeko metodoa
+	 * Hiriaren kapitala ezartzeko metodoa.
 	 *
-	 * @param kapitalaString, kapital izen berria
+	 * @param kapitalaString, hiriaren kapital berria
 	 */
 	public void setKapitalaString(String kapitalaString) {
 		this.kapitalaString = kapitalaString;
@@ -134,7 +149,7 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren poblazioa lortzen duen metodoa
+	 * Hiriaren poblazioa lortzen duen metodoa.
 	 *
 	 * @return the poblazioa , hiriaren poblazio guztia
 	 */
@@ -145,7 +160,7 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren poblazioa ezartzeko metodoa
+	 * Hiriaren poblazioa ezartzeko metodoa.
 	 *
 	 * @param poblazioaDouble , hiriaren poblazio berria
 	 */
@@ -156,7 +171,7 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren bizi esperantza lortzeko metodoa
+	 * Hiriaren bizi esperantza lortzeko metodoa.
 	 *
 	 * @return hiriaren bizi esperantza
 	 */
@@ -167,32 +182,47 @@ public class Paises {
 
 
 	/**
-	 * Hiriaren bizi esperantza ezartzeko metodoa
+	 * Hiriaren bizi esperantza ezartzeko metodoa.
 	 *
-	 * @param biziEsperantzakop, hiriko bizi esperantza berria
+	 * @param biziEsperantzakop , hiriaren bizi esperantza berria
 	 */
 	public void setBiziEsperantzakop(int biziEsperantzakop) {
 		BiziEsperantzakop = biziEsperantzakop;
 	}
 
-	   public boolean isDemokrazioabool() {
+	   /**
+   	 * Hiriak demokrazia duen konprobatzen duen metodoa
+   	 *
+   	 * @return true, demokrazia badu
+   	 */
+   	public boolean isDemokrazioabool() {
 	        return Demokrazioabool;
 	    }
+	   
+   	/**
+   	 * Gets the paiss string.
+   	 *
+   	 * @return the paiss string
+   	 */
+   	public String getPaissStringa() {
+		    return paissString; 
+		}
 	
 	/**
 	 * To string.
 	 *
 	 * @return erregistroa formatu egokian
 	 */
-	@Override
-	public String toString() {
-		return "Kodea: " + PaisKode + "\n" +
-				"Estatua: " + paissString + "\n" +
-				"BiziEsperantza: " + (BiziEsperantzakop != 0 ? BiziEsperantzakop : "No disponible") + "\n" +
-				"Data Sortu: " +   Sortudata +  "\n" +
-				"Poblazioa: " + poblazioaDouble + "\n" +
-				"Kapitala: " + kapitalaString + "\n" +
-				"------------------------------";
-	}
+   	@Override
+   	public String toString() {
+   	    return "Kodea: " + PaisKode + "\n" +
+   	            "Estatua: " + paissString + "\n" +
+   	            "BiziEsperantza: " + (BiziEsperantzakop != 0 ? BiziEsperantzakop : "No disponible") + "\n" +
+   	            "Data Sortu: " + Sortudata + "\n" +
+   	            "Poblazioa: " + poblazioaDouble + "\n" +
+   	            "Kapitala: " + kapitalaString + "\n" +
+   	            "Demokrazia: " + (Demokrazioabool ? "Bai" : "Ez") + "\n" + 
+   	            "------------------------------";
+   	}
 
 }
